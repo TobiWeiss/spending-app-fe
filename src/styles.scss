@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "src/app/core/styling/_colors.scss";
+@import "src/app/core/styling/_fonts.scss";
+
+h1 {
+  @include heading-large;
+}
+
+h2 {
+  @include heading-small;
+}
+
+body {
+  background: $dark-blue;
+  min-height: 100vh;
+  margin: 0;
+  min-width: 100vw;
+}

@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'export CYPRESS_CACHE_FOLDER=$PWD/cy-cache-here'
-        sh 'npm install'
+        sh 'npm install --unsafe-perm=true --allow-root'
         sh 'npm build'
       }
     }

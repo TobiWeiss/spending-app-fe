@@ -18,9 +18,7 @@ pipeline {
     }*/
     stage('Test') {
       steps {
-        sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-        sh 'dpkg -i google-chrome*.deb'
-        sh 'echo google-chrome-stable -version'
+        sh 'apk add --no-cache  chromium --repository=http://dl-cdn.alpinelinux.org/alpine/v3.10/main'
         sh 'npm run test:ci'
       }
     }

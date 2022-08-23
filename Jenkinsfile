@@ -7,7 +7,7 @@ pipeline {
   }
 
   environment {
-    CYPRESS_CACHE_FOLDER = $PWD / cy - cache - here
+    CYPRESS_CACHE_FOLDER = '$PWD/cy-cache-here'
   }
   stages {
     stage('Build') {

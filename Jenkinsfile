@@ -1,6 +1,7 @@
 pipeline {
   agent {
-    docker { image 'node:latest' args '-u root' }
+    docker { image 'node:latest'
+    }
   }
   stages {
 /*
@@ -19,7 +20,7 @@ pipeline {
  */
 
   stage('Install') {
-       steps { sh 'npm install' }
+       steps { sh 'npm run install' }
      }
 
     stage('Build') {

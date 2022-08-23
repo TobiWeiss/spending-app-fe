@@ -1,14 +1,22 @@
 pipeline {
-  agent none
+  agent {
+    docker { image 'node:latest' }
+  }
   stages {
-    stage('Fetch dependencies') {
-      agent {
-        docker 'circleci/node:9.3-stretch-browsers'
+    stage('Install') {
+      steps { sh 'npm install' }
+    }
+
+    stage('Test') {
+      parallel {
+        stage('Unit tests') {
+            steps { sh 'npm run test:ci' }
+        }
       }
-      steps {
-        sh 'npm i'
-        stash includes: 'node_modules/', name: 'node_modules'
-      }
+    }
+
+    stage('Build') {
+      steps { sh 'npm run-script build' }
     }
   }
 }

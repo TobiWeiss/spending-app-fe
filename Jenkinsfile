@@ -18,6 +18,7 @@ pipeline {
     }
     stage('Test') {
       steps {
+        sh 'apt-get install google-chrome-stable'
         sh 'npm run test:ci'
       }
     }

@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm install -unsafe-perm=true --allow-root cypress'
+        sh 'export CYPRESS_CACHE_FOLDER=/app/.cache'
+        sh 'npm install'
         sh 'npm build'
       }
     }

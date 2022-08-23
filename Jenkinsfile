@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'export CYPRESS_CACHE_FOLDER=/app/.cache'
+        sh 'export CYPRESS_CACHE_FOLDER=$PWD/cy-cache-here'
         sh 'npm install'
         sh 'npm build'
       }

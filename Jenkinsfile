@@ -8,9 +8,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm install'
+        sh 'npm install -unsafe-perm=true --allow-root cypress'
         sh 'npm build'
-
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'npm run test:ci'
       }
     }
   }

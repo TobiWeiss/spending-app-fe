@@ -18,8 +18,8 @@ pipeline {
     }*/
     stage('Test') {
       steps {
-        sh 'apt-get update'
-        sh 'apt-get install chromium'
+        sh 'apt-get update -y'
+        sh 'apt-get install chromium -y'
         sh 'npm run test:ci'
       }
     }

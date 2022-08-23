@@ -10,16 +10,19 @@ pipeline {
     CYPRESS_CACHE_FOLDER = '$PWD/cy-cache-here'
   }
   stages {
-    stage('Build') {
+    /*stage('Build') {
       steps {
         sh 'npm install'
         sh 'npm run build'
       }
-    }
+    }*/
     stage('Test') {
       steps {
-        sh 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
-        sh 'apt-get install google-chrome-stable'
+        sh 'apt-get install -y libappindicator1 fonts-liberation'
+        sh 'apt-get install -f'
+        sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+        sh 'dpkg -i google-chrome*.deb'
+        sh 'echo google-chrome-stable -version'
         sh 'npm run test:ci'
       }
     }

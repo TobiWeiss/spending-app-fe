@@ -18,7 +18,7 @@ pipeline {
     }*/
     stage('Test') {
       steps {
-        sh 'apk add --no-cache  chromium --repository=http://dl-cdn.alpinelinux.org/alpine/v3.10/main'
+        sh 'apt-get install chromium'
         sh 'npm run test:ci'
       }
     }

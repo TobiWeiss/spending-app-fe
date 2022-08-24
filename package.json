@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:ci": "ng test --browsers=ChromeHeadless --watch=false"
+    "test:ci": "ng test --browsers=ChromeHeadless --watch=false",
+    "e2e": "ng e2e",
+    "e2e:ci": "ng e2e --headless --browser chrome",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +33,7 @@
     "@angular-devkit/build-angular": "^14.1.0",
     "@angular/cli": "~14.1.0",
     "@angular/compiler-cli": "^14.1.0",
+    "@cypress/schematic": "^2.0.3",
     "@types/jasmine": "~4.0.0",
     "cypress": "^10.6.0",
     "jasmine-core": "~4.2.0",

@@ -19,8 +19,7 @@ pipeline {
      }*/
     stage('Test') {
       steps {
-        sh 'apt-get update'
-        sh 'apt-get install chromium -y'
+        sh 'apk add chromium'
         sh 'npm run test:ci'
       }
     }

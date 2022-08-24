@@ -14,15 +14,14 @@ export class SpendingMgmtComponent implements OnInit {
   constructor() {
     // this is just an example => for more details on config please visit fullPage.js docs
     this.config = {
-      licenseKey: 'YOUR LICENSE KEY HERE',
-      anchors: ['enter', 'statistics'],
-      menu: '#menu',
+      anchors: ['enter', 'statistics', 'history'],
       navigation: true,
     };
   }
 
   ngOnInit(): void {
   }
+
 
   getRef(fullPageRef: any) {
     this.fullpage_api = fullPageRef;

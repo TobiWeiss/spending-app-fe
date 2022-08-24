@@ -1,17 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { SpendingMgmtComponent } from './spending-mgmt/spending-mgmt.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+import {SpendingMgmtComponent} from './spending-mgmt/spending-mgmt.component';
 import {AngularFullpageModule} from "@fullpage/angular-fullpage";
+import {SideMenuComponent} from './core/components/side-menu/side-menu.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpendingMgmtComponent
+    SpendingMgmtComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -27,4 +30,5 @@ import {AngularFullpageModule} from "@fullpage/angular-fullpage";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

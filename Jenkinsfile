@@ -11,16 +11,18 @@ pipeline {
     CHROME_BIN = '/usr/bin/chromium-browser'
   }
   stages {
-    stage('Build') {
-      steps {
-        sh 'npm install'
-        sh 'npm run build'
-      }
-    }
+    /* stage('Build') {
+       steps {
+         sh 'npm install'
+         sh 'npm run build'
+       }
+     }*/
     stage('Test') {
       steps {
-        sh 'apt-get update -y'
-        sh 'apt-get install chromium -y'
+        sh 'RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \\\n' +
+          '    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        sh '# Install Chrome.\n' +
+          'RUN apt-get update && apt-get -y install google-chrome-stable .'
         sh 'npm run test:ci'
       }
     }

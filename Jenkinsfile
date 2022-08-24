@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'selenium/node-chrome'
+      image 'node:current-alpine3.12'
       args '-u root:root'
     }
   }
@@ -11,14 +11,16 @@ pipeline {
     CHROME_BIN = '/usr/bin/chromium-browser'
   }
   stages {
-     stage('Build') {
+    /* stage('Build') {
        steps {
          sh 'npm install'
-         /*  sh 'npm run build'*/
+         sh 'npm run build'
        }
-     }
+     }*/
     stage('Test') {
       steps {
+        sh 'apt-get update'
+        sh 'apt-get install chromium -y'
         sh 'npm run test:ci'
       }
     }

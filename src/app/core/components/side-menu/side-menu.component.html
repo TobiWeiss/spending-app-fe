@@ -1,6 +1,8 @@
 <div class="sa-sidemenu-container">
+  <img class="img-responsive" src="assets/logo.png">
   <div class="sa-sidemenu-entry" *ngFor="let menuEntry of menuEntries" role="button" [routerLink]="menuEntry.path">
     <i class="pi {{menuEntry.icon}}"></i>
-    <span>{{menuEntry.label}}</span>
+    <span class="sa-sidemenu-label"
+          [className]="activeRoute.path!.includes(menuEntry.path) ? 'sa-sidemenu-label active' : 'sa-sidemenu-label'">{{menuEntry.label}}</span>
   </div>
 </div>

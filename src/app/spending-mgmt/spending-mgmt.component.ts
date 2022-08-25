@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-spending-mgmt',
@@ -6,25 +6,15 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./spending-mgmt.component.scss']
 })
 export class SpendingMgmtComponent implements OnInit {
-  @ViewChild('fullpageRef') fp_directive!: ElementRef;
-  config;
-  fullpage_api = undefined;
 
 
   constructor() {
     // this is just an example => for more details on config please visit fullPage.js docs
-    this.config = {
-      anchors: ['enter', 'statistics', 'history'],
-      navigation: true,
-    };
+
   }
 
   ngOnInit(): void {
   }
 
-
-  getRef(fullPageRef: any) {
-    this.fullpage_api = fullPageRef;
-  }
 
 }

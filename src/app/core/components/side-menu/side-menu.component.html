@@ -1,6 +1,5 @@
 <div class="sa-sidemenu-container">
-  <div class="sa-sidemenu-entry" *ngFor="let menuEntry of menuEntries" role="button" [routerLink]="menuEntry.path"
-       fragment="statistics">
+  <div class="sa-sidemenu-entry" *ngFor="let menuEntry of menuEntries" role="button" [routerLink]="menuEntry.path">
     <i class="pi {{menuEntry.icon}}"></i>
     <span>{{menuEntry.label}}</span>
   </div>

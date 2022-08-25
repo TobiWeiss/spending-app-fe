@@ -1,4 +1,6 @@
-<div>
+<div class="sa-scroll-container" (scroll)="onScroll($event)">
   <app-side-menu></app-side-menu>
-  <router-outlet></router-outlet>
+  <div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
 </div>

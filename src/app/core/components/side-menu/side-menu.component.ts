@@ -14,9 +14,9 @@ export class SideMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuEntries = [
-      {icon: "pi-money-bill", label: "Eintragen", path: "spending#enter"},
-      {icon: "pi-history", label: "Historie", path: "spending#history"},
-      {icon: "pi-chart-line", label: "Statistik", path: "spending"}
+      {icon: "pi-money-bill", label: "Eintragen", path: "spending"},
+      {icon: "pi-history", label: "Historie", path: "history"},
+      {icon: "pi-chart-line", label: "Statistik", path: "statistics"}
     ]
   }
 

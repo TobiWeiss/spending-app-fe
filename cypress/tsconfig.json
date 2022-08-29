@@ -1,15 +1,19 @@
 {
-  "extends": "../tsconfig.json",
-  "include": [
-    "../node_modules/cypress"
-  ],
-  "exclude": [
-    "**/*.spec.ts"
-  ],
   "compilerOptions": {
-    "sourceMap": false,
+    "target": "es5",
+    "lib": [
+      "es5",
+      "dom"
+    ],
     "types": [
-      "cypress"
+      "cypress",
+      "cypress-wait-until",
+      "cypress-mobile-commands",
+      "cypress-real-events",
+      "node"
     ]
-  }
+  },
+  "include": [
+    "**/*.ts"
+  ]
 }

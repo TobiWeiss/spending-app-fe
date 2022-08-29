@@ -1,7 +1,7 @@
 import {animate, group, query, style, transition, trigger} from "@angular/animations";
 
 export const slider =
-  trigger('routeAnimations', [
+  trigger('routeAnimation', [
     transition('first => second', slideTo('bottom')),
     transition('first => third', slideTo('top')),
     transition('second => third', slideTo('bottom')),

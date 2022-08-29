@@ -1,6 +1,6 @@
-<div class="sa-scroll-container" (scroll)="onScroll($event)" (swipe)="onSwipe($event)">
+<app-splash-screen></app-splash-screen>
+<app-scroll-navigator
+  [outlet]="outlet">
   <app-side-menu></app-side-menu>
-  <div [@routeAnimations]="prepareRoute(outlet)" (@routeAnimations.done)="setRouteAnimationDone()">
-    <router-outlet #outlet="outlet"></router-outlet>
-  </div>
-</div>
+  <router-outlet #outlet="outlet"></router-outlet>
+</app-scroll-navigator>

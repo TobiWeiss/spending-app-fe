@@ -1,0 +1,15 @@
+<div
+  class="app-splash-screen"
+  data-cy="splash-screen"
+  [ngStyle]="{ top: windowHeight }"
+  *ngIf="showSplash"
+>
+  <div class="app-splash-inner">
+    <div class="app-logo"></div>
+    <div class="app-label">Zahlenpapst</div>
+    <div class="app-loader">
+      <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8"
+                         styleClass="custom-spinner"></p-progressSpinner>
+    </div>
+  </div>
+</div>

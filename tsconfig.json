@@ -30,10 +30,12 @@
     "strictTemplates": true
   },
   "include": [
-    "src",
-    "node_modules/cypress"
+    "src"
   ],
   "exclude": [
     "node_modules/cypress"
+  ],
+  "types": [
+    "cypress"
   ]
 }

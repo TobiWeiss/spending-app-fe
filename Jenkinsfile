@@ -27,7 +27,6 @@ pipeline {
       steps {
         sh 'apk add chromium'
         sh 'npm run test:ci'
-        sh 'npm start'
         sh 'npm run e2e:ci:desktop'
         sh 'npm run e2e:ci:mobile'
       }

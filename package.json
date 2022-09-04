@@ -10,8 +10,8 @@
     "test:ci": "ng test --browsers=ChromeHeadless --watch=false",
     "e2e:mobile": "cypress open --browser=chrome --env target=mobile",
     "e2e:desktop": "cypress open --browser=chrome --env target=desktop",
-    "e2e:ci:mobile": "cypress run --headless --browser chrome --env target=mobile",
-    "e2e:ci:desktop": "cypress run --headless --browser chrome --env target=desktop",
+    "e2e:ci:mobile": "npm start & wait-on http://localhost:4200 & cypress run --headless --browser chrome --env target=mobile",
+    "e2e:ci:desktop": " npm start & wait-on http://localhost:4200 & cypress run --headless --browser chrome --env target=desktop",
     "cypress:open": "cypress open ",
     "cypress:run": "cypress run"
   },

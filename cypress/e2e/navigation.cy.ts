@@ -65,12 +65,17 @@ describe('the scroll and swipe based navigation', () => {
           cy.get('[data-cy="heading-history-page"]').should("be.visible");
         })
       })
-      it('navigates to the page for spendings after swiping downwards three times', () => {
+      it('navigates to the page for spendings after swiping upwnwards three times', () => {
         actAfterSplashScreenHasDisappeared().then(() => {
-          cy.get('[data-cy="scroll-navigator"]').realSwipe("toTop", {length: 50, touchPosition: "bottom"})
-          cy.get('[data-cy="scroll-navigator"]').realSwipe("toTop", {length: 50, touchPosition: "bottom"})
-          cy.get('[data-cy="scroll-navigator"]').realSwipe("toTop", {length: 50, touchPosition: "bottom"})
+          cy.get('[data-cy="scroll-navigator"]').realSwipe("toTop", {length: 150, touchPosition: "center"})
+          cy.get('[data-cy="heading-history-page"]').should("be.visible");
+          cy.get('[data-cy="heading-spending-page"]').should("not.exist");
+          cy.get('[data-cy="scroll-navigator"]').realSwipe("toTop", {length: 150, touchPosition: "center"})
+          cy.get('[data-cy="heading-statistics-page"]').should("be.visible");
+          cy.get('[data-cy="heading-history-page"]').should("not.exist");
+          cy.get('[data-cy="scroll-navigator"]').realSwipe("toTop", {length: 150, touchPosition: "center"})
           cy.get('[data-cy="heading-spending-page"]').should("be.visible");
+          cy.get('[data-cy="heading-history-page"]').should("not.exist");
         })
       })
     }

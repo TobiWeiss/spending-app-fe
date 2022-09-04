@@ -2,7 +2,7 @@ import {SplashScreenComponent} from './splash-screen.component';
 import {fakeAsync, flush, tick} from "@angular/core/testing";
 
 
-fdescribe('SplashScreenComponent', () => {
+describe('SplashScreenComponent', () => {
   let component: SplashScreenComponent = new SplashScreenComponent();
 
   beforeEach(async () => {

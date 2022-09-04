@@ -17,7 +17,7 @@ export class SplashScreenComponent implements OnInit {
       this.distanceToTop = window.innerHeight + "px";
 
       setTimeout(() => {
-        this.showSplash = !this.showSplash;
+        this.showSplash = false;
       }, this.ADDITIONAL_TIME_UNTIL_SPLASH_SCREEN_FINALLY_DISAPPEARS);
     }, this.TIME_UNTIL_SPLASH_SCREEN_STARTS_TO_DISAPPEAR);
   }

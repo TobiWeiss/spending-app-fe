@@ -6,7 +6,6 @@ export enum Target {
   Desktop = "desktop"
 }
 
-
 export const setViewPort = (target: Target) => {
   console.info("called")
   target === Target.Mobile

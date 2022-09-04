@@ -8,8 +8,6 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'spending-app';
-  isRouteAnimationComplete: boolean = true;
-
 
   constructor() {
   }

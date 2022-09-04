@@ -1,7 +1,7 @@
-import Bluebird = require("cypress/types/bluebird");
 import {setViewPort, Target} from "../support/views";
+import {actAfterSplashScreenHasDisappeared} from "../support/helpers";
 
-const scrollUpwards = {
+const scrollUpwardsEvent = {
   deltaY: -66.666666,
   wheelDelta: 120,
   wheelDeltaX: 0,
@@ -9,7 +9,7 @@ const scrollUpwards = {
   bubbles: true
 }
 
-const scrollDownwards = {
+const scrollDownwardsEvent = {
   deltaY: 66.666666,
   wheelDelta: 120,
   wheelDeltaX: 0,
@@ -17,22 +17,8 @@ const scrollDownwards = {
   bubbles: true
 }
 
-const actAfterSplashScreenHasDisappeared = (): Bluebird<any> => {
-  return new Cypress.Promise((resolve, reject) => {
-    cy.waitUntil(() => {
-      return cy.get('[data-cy="splash-screen"]').should('not.exist').then(() =>
-        resolve(true)
-      )
-    })
-  })
-}
 
-
-describe('My First Test', () => {
-    /*  before(() => {
-        cy.visit("/")
-      })*/
-
+describe('the scroll and swipe based navigation', () => {
     beforeEach(() => {
       cy.visit("/")
       setViewPort(Cypress.env("target"))
@@ -47,21 +33,21 @@ describe('My First Test', () => {
     if (Cypress.env("target") === Target.Desktop) {
       it('navigates to the page for viewing statistics on scrolling upwards', async () => {
         actAfterSplashScreenHasDisappeared().then(() => {
-          cy.document().trigger("mousewheel", scrollUpwards);
+          cy.document().trigger("mousewheel", scrollUpwardsEvent);
           cy.get('[data-cy="heading-statistics-page"]').should("be.visible");
         })
       })
       it('navigates to the page for viewing the history on scrolling downwards', () => {
         actAfterSplashScreenHasDisappeared().then(() => {
-          cy.document().trigger("mousewheel", scrollDownwards);
+          cy.document().trigger("mousewheel", scrollDownwardsEvent);
           cy.get('[data-cy="heading-history-page"]').should("be.visible");
         })
       })
       it('navigates to the page for spendings after scrolling upwards three times', () => {
         actAfterSplashScreenHasDisappeared().then(() => {
-          cy.document().trigger("mousewheel", scrollUpwards);
-          cy.document().trigger("mousewheel", scrollUpwards);
-          cy.document().trigger("mousewheel", scrollUpwards);
+          cy.document().trigger("mousewheel", scrollUpwardsEvent);
+          cy.document().trigger("mousewheel", scrollUpwardsEvent);
+          cy.document().trigger("mousewheel", scrollUpwardsEvent);
           cy.get('[data-cy="heading-spending-page"]').should("be.visible");
         })
       })

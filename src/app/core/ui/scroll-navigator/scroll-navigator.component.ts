@@ -24,7 +24,6 @@ export class ScrollNavigatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.info(this.outlet)
   }
 
   prepareRoute(outlet: RouterOutlet) {
@@ -43,18 +42,17 @@ export class ScrollNavigatorComponent implements OnInit {
     const currentUrl = this.router.routerState.snapshot.url;
     if (this.isScrollingDown(wheelEvent)) {
       const previousRoute = this.getPreviousRoute(currentUrl);
-      if (!this.router.getCurrentNavigation()) await this.router.navigateByUrl(`/${previousRoute.path}`);
+      await this.router.navigateByUrl(`/${previousRoute.path}`);
       return;
     }
 
     const nextRoute = this.getNextRoute(currentUrl);
-    if (!this.router.getCurrentNavigation()) await this.router.navigateByUrl(`/${nextRoute.path}`);
+    await this.router.navigateByUrl(`/${nextRoute.path}`);
   }
 
   async onSwipe(event: Event) {
-    console.info(event);
     const wheelEvent = event as WheelEvent;
-    if (!wheelEvent) return;
+    if (!wheelEvent || !this.isRouteAnimationComplete) return;
     this.isRouteAnimationComplete = false;
     const currentUrl = this.router.routerState.snapshot.url;
     if (this.isSwipingDown(wheelEvent)) {

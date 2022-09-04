@@ -1,23 +1,28 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {SplashScreenComponent} from './splash-screen.component';
+import {fakeAsync, flush, tick} from "@angular/core/testing";
 
-import { SplashScreenComponent } from './splash-screen.component';
 
-describe('SplashScreenComponent', () => {
-  let component: SplashScreenComponent;
-  let fixture: ComponentFixture<SplashScreenComponent>;
+fdescribe('SplashScreenComponent', () => {
+  let component: SplashScreenComponent = new SplashScreenComponent();
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ SplashScreenComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(SplashScreenComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new SplashScreenComponent();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should set distanceToTop to the innerHeight of the window after ${component!.TIME_UNTIL_SPLASH_SCREEN_STARTS_TO_DISAPPEAR} ms`, fakeAsync(() => {
+    component.ngOnInit();
+    tick(component.TIME_UNTIL_SPLASH_SCREEN_STARTS_TO_DISAPPEAR);
+    expect(component.distanceToTop).toEqual(`${window.innerHeight}px`);
+    flush();
+  }));
+  it(`should disappear after an additional ${component!.ADDITIONAL_TIME_UNTIL_SPLASH_SCREEN_FINALLY_DISAPPEARS} ms`, fakeAsync(() => {
+    component.ngOnInit();
+    tick(component.TIME_UNTIL_SPLASH_SCREEN_STARTS_TO_DISAPPEAR + component.ADDITIONAL_TIME_UNTIL_SPLASH_SCREEN_FINALLY_DISAPPEARS);
+    expect(component.showSplash).toEqual(false);
+    flush();
+  }));
 });

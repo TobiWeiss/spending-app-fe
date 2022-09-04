@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "es5",
+      "dom"
+    ],
+    "types": [
+      "cypress",
+      "cypress-wait-until",
+      "cypress-mobile-commands",
+      "cypress-real-events",
+      "node"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}

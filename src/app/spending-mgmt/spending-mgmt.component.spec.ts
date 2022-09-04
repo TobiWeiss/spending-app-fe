@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SpendingMgmtComponent } from './spending-mgmt.component';
+import {SpendingMgmtComponent} from './spending-mgmt.component';
 
 describe('SpendingMgmtComponent', () => {
   let component: SpendingMgmtComponent;
@@ -8,9 +8,9 @@ describe('SpendingMgmtComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpendingMgmtComponent ]
+      declarations: [SpendingMgmtComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SpendingMgmtComponent);
     component = fixture.componentInstance;

@@ -1,0 +1,5 @@
+<div class="sa-scroll-navigator" data-cy="scroll-navigator"
+     (swipe)="onSwipe($event)" [@routeAnimation]="prepareRoute(outlet)"
+     (@routeAnimation.done)="setRouteAnimationDone()">
+  <ng-content></ng-content>
+</div>

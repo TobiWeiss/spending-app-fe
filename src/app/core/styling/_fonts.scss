@@ -22,14 +22,14 @@ $default-font: "Alumni Sans Pinstripe", sans-serif;
   margin-bottom: 0rem;
 }
 
-@mixin text-large {
+@mixin text-large($color) {
   font-family: $default-font;
   font-size: 2.75rem;
-  color: white;
+  color: $color;
 }
 
-@mixin text-small {
+@mixin text-small($color) {
   font-family: $default-font;
-  font-size: 2.25rem;
-  color: white;
+  font-size: 1.75rem;
+  color: $color;
 }

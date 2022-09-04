@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<app-splash-screen></app-splash-screen>
+<app-scroll-navigator
+  [outlet]="outlet">
+  <app-side-menu></app-side-menu>
+  <router-outlet #outlet="outlet"></router-outlet>
+</app-scroll-navigator>
